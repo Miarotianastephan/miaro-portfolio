@@ -1,4 +1,8 @@
-
+/* 
+    Assests
+*/
+import face from '@/assets/miaro_face_w_bg.png';
+import full from '@/assets/miaro_full_w_bg.png';
 
 export const About = () => {
     return (
@@ -7,10 +11,11 @@ export const About = () => {
                 {/* section 1 */}
                 <div className="flex flex-col justify-between p-6 col-span-1 row-span-1 rounded-4xl bg-primary-container text-primary text-2xl font-semibold tracking-tight">
                     
-                    <div className="flex justify-between items-center">
-                        <div className="border-2 p-4 rounded-xl w-16 h-16">
-                            
-                        </div>
+                    <div className="flex justify-between items-start">
+                        <img    
+                            className='w-28 h-28 object-cover rounded-xl'
+                            src={full} alt="miarotiana's avatar" 
+                        />
 
                         <div className="flex flex-col gap-2 items-end">
                             <span className="text-sm">Based in </span>
