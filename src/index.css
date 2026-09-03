@@ -157,3 +157,51 @@
   --color-shadow: var(--shadow);
   --color-surface-dim-bright: var(--surface-dim-bright);
 }
+
+/* Responsive overrides for the About component grid (no component changes) */
+@media (max-width: 640px) {
+  /* Collapse the 2x2 grid into a single column stack on small screens */
+  main > .grid.h-full.w-full.grid-cols-2.grid-rows-2 {
+    display: grid;
+    grid-template-columns: 1fr !important;
+    grid-template-rows: repeat(4, auto) !important;
+    gap: 0.75rem !important;
+    padding: 0.5rem !important;
+  }
+
+  /* Ensure children span behave like normal flow items when stacked */
+  main > .grid.h-full.w-full.grid-cols-2.grid-rows-2 > div {
+    grid-column: auto !important;
+    grid-row: auto !important;
+    min-height: auto !important;
+  }
+
+  /* Make the nested 3-column section stack to one column */
+  main > .grid.h-full.w-full.grid-cols-2.grid-rows-2 .grid.col-span-full.grid-cols-3 {
+    grid-template-columns: 1fr !important;
+    grid-auto-rows: auto !important;
+    gap: 0.5rem !important;
+  }
+
+  /* Slightly reduce image sizes on small screens */
+  main img {
+    width: 56px !important;
+    height: 56px !important;
+    object-fit: cover !important;
+  }
+}
+
+/* Tablet / small desktop: make nested section 2 columns */
+@media (min-width: 641px) and (max-width: 1024px) {
+  main > .grid.h-full.w-full.grid-cols-2.grid-rows-2 {
+    grid-template-columns: 1fr 1fr !important;
+    grid-template-rows: auto auto !important;
+    gap: 1rem !important;
+  }
+
+  main > .grid.h-full.w-full.grid-cols-2.grid-rows-2 .grid.col-span-full.grid-cols-3 {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 0.75rem !important;
+  }
+}
+
