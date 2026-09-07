@@ -3,11 +3,26 @@
 */
 // import face from '@/assets/miaro_face_w_bg.png';
 import full from '@/assets/miaro_full_w_bg.png';
+import {
+    Docker,
+    NodeJs,
+    PostgreSQL,
+    React,
+    TypeScript,
+} from '@/assets/TechStackIcons';
 
 export const About = () => {
+    const stackBadges = [
+        { id: 'react', content: <React className="h-8 w-8" />, bg: '' },
+        { id: 'node', content: <NodeJs className="h-8 w-8" />, bg: '' },
+        { id: 'ts', content: <TypeScript className="h-8 w-8" />, bg: '' },
+        { id: 'postgres', content: <PostgreSQL className="h-8 w-8" />, bg: '' },
+        { id: 'docker', content: <Docker className="h-8 w-8" />, bg: '' },
+    ];
+
     return (
         <main className="max-h-max w-full flex items-center justify-center">
-            <div className="grid h-full w-full grid-cols-1 md:grid-cols-2 md:grid-rows-2 gap-2">
+            <div className="grid h-full w-full grid-cols-1 md:grid-cols-2 md:grid-rows-2 gap-4">
                 {/* section 1 */}
                 <div className="flex flex-col justify-between p-6 col-span-1 row-span-1 rounded-4xl bg-primary-container text-on-primary-container text-lg lg:text-2xl font-semibold tracking-tight selection:text-tertiary selection:bg-surface-container">
                     
@@ -51,7 +66,7 @@ export const About = () => {
                 </div>
                 
                 {/* section 2 */}
-                <div className="grid col-span-full grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:grid-rows-1 gap-2">
+                <div className="grid col-span-full grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:grid-rows-1 gap-4">
                     <div className="flex flex-col gap-2 p-6 text-xl font-semibold tracking-tight col-span-1 rounded-4xl bg-surface-dim-bright">
                         Experience
 
@@ -97,8 +112,19 @@ export const About = () => {
 
                     </div>
 
-                    <div className="p-6 text-xl font-semibold text-on-primary tracking-tight col-span-1 rounded-4xl bg-primary">
-                        My Stacks
+                    <div className="flex flex-col gap-4 p-6 text-xl font-semibold text-on-primary tracking-tight col-span-1 rounded-4xl bg-primary">
+                        <span>My Stacks</span>
+
+                        <div className="flex flex-wrap items-center justify-center gap-3">
+                            {stackBadges.map(({ id, content, bg }) => (
+                                <div
+                                    key={id}
+                                    className={`flex h-16 w-16 items-center justify-center rounded-2xl shadow-xl ${bg}`}
+                                >
+                                    {content}
+                                </div>
+                            ))}
+                        </div>
                     </div>
                 </div>
             </div>
