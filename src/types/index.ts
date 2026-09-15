@@ -16,3 +16,14 @@ export interface Project {
   techStacks: string[];
   projectUrl: string;
 }
+
+export interface NavItem {
+  label: string;
+  href: string;
+}
+
+export interface NavBarProps {
+  items?: NavItem[];
+  /** Called when a link is clicked — wire this up to your router if needed */
+  onNavigate?: (href: string) => void;
+}

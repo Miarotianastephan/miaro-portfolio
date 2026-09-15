@@ -28,7 +28,7 @@ import {
 /**
  * Types
  */
-import type { Project } from '@/types';
+import type { NavItem, Project } from '@/types';
 
 export const PROFILE_TAGS = [
   'React 19',
@@ -180,4 +180,11 @@ export const FOOTER_LINKS = [
     url: '#',
     label: 'Github',
   },
+];
+
+export const NAV_ITEMS: NavItem[] = [
+  { label: "Home", href: "/" },
+  { label: "About", href: "/more-about" },
+  { label: "Realisation", href: "/realisation" },
+  { label: "Stacks", href: "/stacks" },
 ];
