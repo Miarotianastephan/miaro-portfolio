@@ -21,25 +21,25 @@ export const About = () => {
     ];
 
     return (
-        <main className="max-h-max w-full flex items-center justify-center">
-            <div className="grid h-full w-full grid-cols-1 md:grid-cols-2 md:grid-rows-2 gap-4">
+        <main className="w-full flex items-center justify-center">
+            <div className="grid h-full w-full grid-cols-1 md:grid-cols-2 md:grid-rows-2 gap-6">
                 {/* section 1 */}
-                <div className="flex flex-col justify-between p-6 col-span-1 row-span-1 rounded-4xl bg-primary-container text-on-primary-container text-lg lg:text-2xl font-semibold tracking-tight selection:text-tertiary selection:bg-surface-container">
+                <div className="flex flex-col gap-y-12 md:gap-0 justify-between p-6 col-span-1 row-span-1 rounded-4xl bg-primary-container text-on-primary-container text-lg lg:text-2xl font-semibold tracking-tight selection:text-tertiary selection:bg-surface-container">
                     
                     <div className="flex justify-between items-start">
                         <img    
-                            className='w-18 h-18 lg:w-28 lg:h-28 object-cover rounded-xl'
+                            className='w-18 h-18 md:w-28 md:h-28 object-cover rounded-xl'
                             src={full} alt="miarotiana's avatar" 
                         />
 
-                        <div className="flex flex-col gap-2 items-end  tracking-tighter leading-relaxed">
+                        <div className="flex flex-col items-end tracking-tighter">
                             <span className="text-sm">Based in </span>
                             <span className="text-lg">Antananarivo, Madagascar</span>
                         </div>
                     </div>
                     
-                    <p>
-                        Solving complex problems through <br/> elegant codebases.
+                    <p className='tracking-tighter'>
+                        Solving complex problems through elegant codebases.
                     </p>
                 </div>
 
@@ -51,63 +51,63 @@ export const About = () => {
                             <span className="cursor-pointer">View All</span>
                         </div>
 
-                        <div className="flex flex-col flex-1 border-2 border-secondary-fixed-dim rounded-2xl p-4 font-normal tracking-tight text-lg justify-center">
+                        <div className="flex flex-col flex-1 border-b border-secondary-fixed-dim p-4 font-normal tracking-tight text-lg justify-center">
                             <span>miaro-portfolio</span>
                             <span className="max-w-lg text-sm">My Personal Portfolio that showcases my work and skills.</span>
-                            <span className="text-xs text-on-surface-variant self-end bg-amber-50 rounded-2xl px-2 py-1">personal</span>
+                            <span className="mt-4 text-xs text-on-surface-variant self-end bg-amber-50 rounded-2xl px-2 py-1">personal project</span>
                         </div>
 
-                        <div className="flex flex-col flex-1 border-2 border-secondary-fixed-dim rounded-2xl p-4 font-normal tracking-tight text-lg justify-center">
+                        <div className="flex flex-col flex-1 border-b border-secondary-fixed-dim p-4 font-normal tracking-tight text-lg justify-center">
                             <span>tracklinks</span>
                             <span className="max-w-xs text-sm">A simple link management tool. It helps to track links used in various platforms.</span>
-                            <span className="text-xs text-on-surface-variant self-end bg-amber-50 rounded-2xl px-2 py-1">profesional</span>
+                            <span className="mt-4 text-xs text-on-surface-variant self-end bg-amber-50 rounded-2xl px-2 py-1">profesional project</span>
                         </div>
                     </div>
                 </div>
                 
                 {/* section 2 */}
-                <div className="grid col-span-full grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:grid-rows-1 gap-4">
+                <div className="h-max grid col-span-full grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:grid-rows-1 gap-4">
                     <div className="flex flex-col gap-2 p-6 text-xl font-semibold tracking-tight col-span-1 rounded-4xl bg-surface-dim-bright">
                         Experience
 
-                        <div className="max-h-max flex flex-col border border-secondary-fixed-dim rounded-2xl p-4 font-normal tracking-tight text-lg justify-center">
+                        <div className="max-h-max flex flex-col border-b border-secondary-fixed-dim py-4 font-normal tracking-tight text-lg justify-center">
                             <div className="flex justify-between items-start">
                                 <div className="max-w-40 flex flex-col text-sm gap-2">
                                     <span className="font-semibold tracking-tighter">Full Stack JS Developer & Lead Cloud Engineer</span>
                                     <span>VICTUS</span>
                                 </div>
-                                <div className="text-xs text-on-surface-variant border border-primary rounded-2xl px-2 py-1">Nov.2025 - Jul.2026</div>
+                                <div className="text-xs text-on-surface-variant">Nov.2025 - Jul.2026</div>
                             </div>
                             <span className="text-sm text-on-surface-variant self-end border-b cursor-pointer hover:font-semibold transition-all duration-200">See Details</span>
                         </div>
 
-                        <div className="max-h-max flex flex-col border border-secondary-fixed-dim rounded-2xl p-4 font-normal tracking-tight text-lg justify-center">
+                        <div className="max-h-max flex flex-col border-secondary-fixed-dim py-4 font-normal tracking-tight text-lg justify-center">
                             <div className="flex justify-between items-start">
                                 <div className="max-w-40 flex flex-col text-sm gap-2">
                                     <span className="font-semibold tracking-tighter">Backend Developer</span>
                                     <span>Logic RDV, HelloSoins</span>
                                 </div>
-                                <div className="text-xs text-on-surface-variant border border-primary rounded-2xl px-2 py-1">Jan.2025 - Sept.2025</div>
+                                <div className="text-xs text-on-surface-variant">Jan.2025 - Sept.2025</div>
                             </div>
                             <span className="text-sm text-on-surface-variant self-end border-b cursor-pointer hover:font-semibold transition-all duration-200">See Details</span>
                         </div>
                         
                     </div>
 
-                    <div className="max-h-max flex flex-col gap-2 p-6 text-xl font-semibold tracking-tight col-span-1 rounded-4xl bg-surface-dim-bright">
+                    <div className="max-h-full flex flex-col gap-2 p-6 text-xl font-semibold tracking-tight col-span-1 rounded-4xl bg-surface-dim-bright">
                         <span className="">
                             Academic Path
                         </span>
 
-                        <div className="max-h-max flex flex-col border border-secondary-fixed-dim rounded-2xl p-4 font-normal tracking-tight text-sm justify-center">
+                        <div className="max-h-max flex flex-col border-b border-secondary-fixed-dim py-4 font-normal tracking-tight text-sm justify-center">
                             <span className="font-semibold">Master 1 – Ingénierie Informatique</span>
-                            <span>IT-University</span>
-                            <span className="text-on-surface-variant self-end">2024-2025</span>
+                            <span>IT University</span>
+                            <span className="mt-4 text-on-surface-variant self-end">2024-2025</span>
                         </div>
-                        <div className="max-h-max flex flex-col border border-secondary-fixed-dim rounded-2xl p-4 font-normal tracking-tight text-sm justify-center">
+                        <div className="max-h-max flex flex-col py-4 font-normal tracking-tight text-sm justify-center">
                             <span className="font-semibold">Bachelor 3 – Informatique</span>
-                            <span>IT-University</span>
-                            <span className="text-on-surface-variant self-end">2021-2024</span>
+                            <span>IT University</span>
+                            <span className="mt-4 text-on-surface-variant self-end">2021-2024</span>
                         </div>
 
                     </div>
