@@ -161,7 +161,7 @@ export const About = () => {
                         group
                         col-span-1
                         flex
-                        min-h-[300px]
+                        min-h-75
                         flex-col
                         justify-between
                         rounded-4xl
@@ -266,7 +266,7 @@ export const About = () => {
                     className="
                         col-span-1
                         flex
-                        min-h-[300px]
+                        min-h-75
                         flex-col
                         justify-around
                         rounded-4xl
@@ -301,7 +301,7 @@ export const About = () => {
 
                     <div className="overflow-x-auto pb-1">
 
-                        <div className="flex min-w-[620px] items-start">
+                        <div className="flex min-w-155 items-start">
 
                             {processSteps.map((step, index) => {
 
@@ -375,7 +375,7 @@ export const About = () => {
                                                 }}
                                                 className="
                                                     mt-2
-                                                    max-w-[120px]
+                                                    max-w-30
                                                     text-xs
                                                     leading-relaxed
                                                 "
@@ -390,7 +390,7 @@ export const About = () => {
                                             <div
                                                 className="
                                                     mx-3
-                                                    mt-[22px]
+                                                    mt-5.5
                                                     h-px
                                                     flex-1
                                                     bg-secondary-fixed-dim
@@ -422,7 +422,7 @@ export const About = () => {
                     className="
                         col-span-1
                         flex
-                        min-h-[250px]
+                        min-h-62.5
                         flex-col
                         justify-between
                         rounded-4xl
@@ -485,7 +485,7 @@ export const About = () => {
                     className="
                         col-span-1
                         flex
-                        min-h-[250px]
+                        min-h-62.5
                         flex-col
                         justify-between
                         rounded-4xl
@@ -573,7 +573,7 @@ export const About = () => {
                     className="
                         col-span-1
                         flex
-                        min-h-[250px]
+                        min-h-62.5
                         flex-col
                         justify-between
                         rounded-4xl

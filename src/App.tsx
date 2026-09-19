@@ -12,7 +12,7 @@ import { Home } from "@/pages/Home";
 /* 
     Nodes modules
 */
-import { AnimatePresence, motion } from "motion/react"
+import { AnimatePresence } from "motion/react"
 import { MoreAbout } from "@/pages/MoreAbout";
 import { Realisation } from "@/pages/Realisation";
 import { Stacks } from "@/pages/Stacks";
