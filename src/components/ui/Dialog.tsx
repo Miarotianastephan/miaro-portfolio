@@ -57,7 +57,7 @@ export const Dialog = ({
                 <>
                     <motion.div
                         className={cn(
-                            'fixed top-1/2 left-1/2 -translate-1/2 z-50 bg-background rounded-3xl max-w-md w-full p-8 shadow-2xl',
+                            'fixed top-1/2 left-1/2 -translate-1/2 z-150 bg-background rounded-3xl max-w-md w-full p-8 shadow-2xl',
                             className,
                         )}
                         variants={dialogVariants}
@@ -70,7 +70,7 @@ export const Dialog = ({
                     </motion.div>
 
                     <motion.div
-                        className="fixed inset-0 bg-scrim/50 backdrop-blur-sm z-40"
+                        className="fixed inset-0 bg-scrim/50 backdrop-blur-sm z-140"
                         onClick={onOpen}
                         initial={{ opacity:0 }}
                         animate={{ opacity:1 }}

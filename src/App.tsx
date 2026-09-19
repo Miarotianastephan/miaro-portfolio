@@ -12,7 +12,7 @@ import { Home } from "@/pages/Home";
 /* 
     Nodes modules
 */
-import { AnimatePresence } from "motion/react"
+import { AnimatePresence, motion } from "motion/react"
 import { MoreAbout } from "@/pages/MoreAbout";
 import { Realisation } from "@/pages/Realisation";
 import { Stacks } from "@/pages/Stacks";
@@ -36,7 +36,9 @@ const AppRoutes = () => {
   return(
     <div className="min-h-screen bg-background text-on-background font-ranade p-4 selection:bg-primary-container selection:text-on-primary-container lg:p-2">
       <div className="max-w-7xl mx-auto flex flex-col gap-4">
-        <div className="sticky top-4 md:py-2">
+        <div
+          className="sticky -top-0.5 md:top-4 z-110"
+        >
           <NavBar onNavigate={(href) => navigate(href)} />
         </div>
         

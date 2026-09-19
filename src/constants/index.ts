@@ -186,5 +186,5 @@ export const NAV_ITEMS: NavItem[] = [
   { label: "Home", href: "/" },
   { label: "About", href: "/more-about" },
   { label: "Realisation", href: "/realisation" },
-  { label: "Stacks", href: "/stacks" },
+  // { label: "Stacks", href: "/stacks" },
 ];

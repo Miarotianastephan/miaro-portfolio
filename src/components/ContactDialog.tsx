@@ -99,7 +99,7 @@ export const ContactDialog = ({ open, onOpen }: ContactDialogProps) => {
             <DialogHeader
                 onOpen={onOpen}
             >
-                <DialogTitle>Lets's Connect</DialogTitle>
+                <DialogTitle>Let's Connect</DialogTitle>
             </DialogHeader>
 
             <DialogContent>

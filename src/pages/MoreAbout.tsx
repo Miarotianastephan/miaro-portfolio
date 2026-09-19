@@ -37,7 +37,7 @@ export const MoreAbout = () => {
                     transition={{ duration: 0.4 }}
                 >
                     <span className="flex justify-between items-center">
-                        <h1 className="text-lg font-semibold md:text-6xl">+3</h1>
+                        <h1 className="text-7xl font-semibold md:text-8xl">+3</h1>
                         <img    
                                 className='w-18 h-18 md:w-28 md:h-28 object-cover rounded-xl'
                                 src={face} alt="miarotiana's avatar" 

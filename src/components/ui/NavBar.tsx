@@ -14,14 +14,14 @@ import type { NavBarProps, NavItem } from "@/types";
 */
 import { NAV_ITEMS } from "@/constants/index";
 import { useLocation } from "react-router";
-const DEFAULT_ITEMS: NavItem[] = NAV_ITEMS
+
+const DEFAULT_ITEMS: NavItem[] = NAV_ITEMS;
 
 /* 
   Assets
 */
 import { DownloadIcon } from "@/components/ui/download";
 import { Button } from "./Button";
-import { MailIcon } from "lucide-react";
 
 
 export default function NavBar({
@@ -86,7 +86,7 @@ export default function NavBar({
 
       </div>
 
-      {/* MOBILE — burger trigger                                           */}
+      {/* MOBILE — burger trigger*/}
       <div className="md:hidden flex items-center justify-between px-4 py-3 backdrop-blur-lg">
         <span className="text-sm font-semibold text-neutral-900">portfolio.miaro</span>
         <span className="flex gap-1">
@@ -154,7 +154,7 @@ export default function NavBar({
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "spring", stiffness: 320, damping: 35 }}
-              className="fixed right-0 top-0 z-40 h-full w-[75%] max-w-xs bg-background shadow-xl md:hidden flex flex-col pt-24 px-8"
+              className="fixed right-0 top-0 z-110 h-full w-[75%] max-w-xs bg-background shadow-xl md:hidden flex flex-col pt-24 px-8"
             >
               <motion.ul
                 className="flex flex-col gap-1"

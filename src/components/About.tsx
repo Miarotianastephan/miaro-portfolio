@@ -1,133 +1,647 @@
 /* 
-    Assests
+    Node modules
 */
-// import face from '@/assets/miaro_face_w_bg.png';
+import { useState } from 'react';
+import { motion, type Variants } from 'framer-motion';
+
+/* 
+    Components
+*/
+import { ContactDialog } from "@/components/ContactDialog";
+
+/* 
+    Assets
+*/
 import full from '@/assets/miaro_full_w_bg.png';
 import {
-    Docker,
+    Nest,
+    GitHub,
+    Express,
     NodeJs,
     PostgreSQL,
-    React,
+    React as ReactIcon,
     TypeScript,
 } from '@/assets/TechStackIcons';
 
+
+const processSteps = [
+    {
+        id: 'discover',
+        label: 'Discover',
+        description: 'Understand the problem.',
+    },
+    {
+        id: 'design',
+        label: 'Design',
+        description: 'Shape the right solution.',
+    },
+    {
+        id: 'build',
+        label: 'Build',
+        description: 'Turn ideas into working code.',
+    },
+    {
+        id: 'test',
+        label: 'Test',
+        description: 'Iterate and improve continuously.',
+    },
+    {
+        id: 'ship',
+        label: 'Ship',
+        description: 'Bring the product to production.',
+    },
+];
+
+
+const stackBadges = [
+    {
+        id: 'react',
+        label: 'React',
+        content: <ReactIcon className="h-10 w-10" />,
+    },
+    {
+        id: 'typescript',
+        label: 'TypeScript',
+        content: <TypeScript className="h-10 w-10" />,
+    },
+    {
+        id: 'node',
+        label: 'Node.js',
+        content: <NodeJs className="h-10 w-10" />,
+    },
+    {
+        id: 'express',
+        label: 'Express',
+        content: (
+            <Express/>
+        ),
+    },
+    {
+        id: 'nestjs',
+        label: 'NestJS',
+        content: (
+            <Nest/>
+        ),
+    },
+    {
+        id: 'postgresql',
+        label: 'PostgreSQL',
+        content: <PostgreSQL className="h-10 w-10" />,
+    },
+    {
+        id: 'github',
+        label: 'GitHub',
+        content: (
+            <GitHub className='h-10 w-10'/>
+        ),
+    },
+];
+
+
+const containerVariants: Variants = {
+    hidden: {},
+    visible: {
+        transition: {
+            staggerChildren: 0.08,
+        },
+    },
+};
+
+
+const cardVariants: Variants = {
+    hidden: {
+        opacity: 0,
+        y: 18,
+    },
+    visible: {
+        opacity: 1,
+        y: 0,
+        transition: {
+            duration: 0.55,
+            ease: 'easeOut',
+        },
+    },
+};
+
+
 export const About = () => {
-    const stackBadges = [
-        { id: 'react', content: <React className="h-8 w-8" />, bg: '' },
-        { id: 'node', content: <NodeJs className="h-8 w-8" />, bg: '' },
-        { id: 'ts', content: <TypeScript className="h-8 w-8" />, bg: '' },
-        { id: 'postgres', content: <PostgreSQL className="h-8 w-8" />, bg: '' },
-        { id: 'docker', content: <Docker className="h-8 w-8" />, bg: '' },
-    ];
+    const [activeStep, setActiveStep] = useState(0);
+    const [dialogOpen, setDialogOpen] = useState(false)
 
     return (
-        <main className="w-full flex items-center justify-center">
-            <div className="grid h-full w-full grid-cols-1 md:grid-cols-2 md:grid-rows-2 gap-6">
-                {/* section 1 */}
-                <div className="flex flex-col gap-y-12 md:gap-0 justify-between p-6 col-span-1 row-span-1 rounded-4xl bg-primary-container text-on-primary-container text-lg lg:text-2xl font-semibold tracking-tight selection:text-tertiary selection:bg-surface-container">
-                    
-                    <div className="flex justify-between items-start">
-                        <img    
-                            className='w-18 h-18 md:w-28 md:h-28 object-cover rounded-xl'
-                            src={full} alt="miarotiana's avatar" 
+        <main className="min-h-screen w-full flex items-center justify-center">
+            <motion.div
+                variants={containerVariants}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{
+                    once: true,
+                    amount: 0.15,
+                }}
+                className="
+                    grid
+                    w-full
+                    grid-cols-1
+                    gap-4
+                    md:grid-cols-12
+                    md:auto-rows-[minmax(240px,auto)]
+                "
+            >
+
+                {/* =====================================================
+                    01 — LOCATION
+                    Desktop: 4 / 12
+                ====================================================== */}
+
+                <motion.article
+                    variants={cardVariants}
+                    whileHover={{ y: -2 }}
+                    transition={{ duration: 0.2 }}
+                    className="
+                        group
+                        col-span-1
+                        flex
+                        min-h-[300px]
+                        flex-col
+                        justify-between
+                        rounded-4xl
+                        bg-primary-container
+                        p-6
+                        text-on-primary-container
+
+                        md:col-span-5
+                        lg:col-span-4
+                    "
+                >
+                    <div className="flex items-start justify-between gap-6">
+
+                        <img
+                            className="
+                                h-20
+                                w-20
+                                rounded-2xl
+                                object-cover
+
+                                md:h-24
+                                md:w-24
+                            "
+                            src={full}
+                            alt="Miarotiana's avatar"
                         />
 
-                        <div className="flex flex-col items-end tracking-tighter">
-                            <span className="text-sm">Based in </span>
-                            <span className="text-lg">Antananarivo, Madagascar</span>
-                        </div>
-                    </div>
-                    
-                    <p className='tracking-tighter'>
-                        Solving complex problems through elegant codebases.
-                    </p>
-                </div>
+                        <div className="text-right tracking-tight">
+                            <span className="block text-xs opacity-70">
+                                Based in
+                            </span>
 
-                <div className="p-6 col-span-1 row-span-1 rounded-4xl bg-surface-dim">
-                    <div className="flex flex-col gap-4 text-xl text-on-surface-variant justify-between font-semibold tracking-tight">
-                        
-                        <div className="w-full flex justify-between gap-2 items-center">
-                            <span>Featured projects</span>
-                            <span className="cursor-pointer">View All</span>
+                            <span className="block text-sm font-medium md:text-base">
+                                Antananarivo, Madagascar
+                            </span>
                         </div>
 
-                        <div className="flex flex-col flex-1 border-b border-secondary-fixed-dim p-4 font-normal tracking-tight text-lg justify-center">
-                            <span>miaro-portfolio</span>
-                            <span className="max-w-lg text-sm">My Personal Portfolio that showcases my work and skills.</span>
-                            <span className="mt-4 text-xs text-on-surface-variant self-end bg-amber-50 rounded-2xl px-2 py-1">personal project</span>
-                        </div>
-
-                        <div className="flex flex-col flex-1 border-b border-secondary-fixed-dim p-4 font-normal tracking-tight text-lg justify-center">
-                            <span>tracklinks</span>
-                            <span className="max-w-xs text-sm">A simple link management tool. It helps to track links used in various platforms.</span>
-                            <span className="mt-4 text-xs text-on-surface-variant self-end bg-amber-50 rounded-2xl px-2 py-1">profesional project</span>
-                        </div>
-                    </div>
-                </div>
-                
-                {/* section 2 */}
-                <div className="h-max grid col-span-full grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:grid-rows-1 gap-4">
-                    <div className="flex flex-col gap-2 p-6 text-xl font-semibold tracking-tight col-span-1 rounded-4xl bg-surface-dim-bright">
-                        Experience
-
-                        <div className="max-h-max flex flex-col border-b border-secondary-fixed-dim py-4 font-normal tracking-tight text-lg justify-center">
-                            <div className="flex justify-between items-start">
-                                <div className="max-w-40 flex flex-col text-sm gap-2">
-                                    <span className="font-semibold tracking-tighter">Full Stack JS Developer & Lead Cloud Engineer</span>
-                                    <span>VICTUS</span>
-                                </div>
-                                <div className="text-xs text-on-surface-variant">Nov.2025 - Jul.2026</div>
-                            </div>
-                            <span className="text-sm text-on-surface-variant self-end border-b cursor-pointer hover:font-semibold transition-all duration-200">See Details</span>
-                        </div>
-
-                        <div className="max-h-max flex flex-col border-secondary-fixed-dim py-4 font-normal tracking-tight text-lg justify-center">
-                            <div className="flex justify-between items-start">
-                                <div className="max-w-40 flex flex-col text-sm gap-2">
-                                    <span className="font-semibold tracking-tighter">Backend Developer</span>
-                                    <span>Logic RDV, HelloSoins</span>
-                                </div>
-                                <div className="text-xs text-on-surface-variant">Jan.2025 - Sept.2025</div>
-                            </div>
-                            <span className="text-sm text-on-surface-variant self-end border-b cursor-pointer hover:font-semibold transition-all duration-200">See Details</span>
-                        </div>
-                        
                     </div>
 
-                    <div className="max-h-full flex flex-col gap-2 p-6 text-xl font-semibold tracking-tight col-span-1 rounded-4xl bg-surface-dim-bright">
-                        <span className="">
-                            Academic Path
+
+                    <div>
+                        <span
+                            className="
+                                mb-2
+                                block
+                                text-xs
+                                uppercase
+                                tracking-[0.18em]
+                                opacity-60
+                            "
+                        >
+                            Availability
                         </span>
 
-                        <div className="max-h-max flex flex-col border-b border-secondary-fixed-dim py-4 font-normal tracking-tight text-sm justify-center">
-                            <span className="font-semibold">Master 1 – Ingénierie Informatique</span>
-                            <span>IT University</span>
-                            <span className="mt-4 text-on-surface-variant self-end">2024-2025</span>
+                        <div
+                            className="
+                                flex
+                                items-center
+                                gap-2
+                                text-base
+                                font-medium
+                                tracking-tight
+                            "
+                        >
+                            <motion.span
+                                aria-hidden="true"
+                                className="w-2 h-2 bg-primary rounded-full"
+                                animate={{
+                                    scale: [1, 1.35, 1],
+                                    boxShadow: [
+                                        "0px 0px 0px bg-blue-500",
+                                        "0px 0px 8px bg-blue-800",
+                                        "0px 0px 0px bg-blue-500"
+                                    ]
+                                }}
+                                transition={{
+                                    duration: 0.9, // duree de l'animation
+                                    repeat: Infinity,
+                                    repeatType: "reverse",
+                                    repeatDelay: 2, // entre chaque repetition
+                                    delay: 2 // attente avant debut animation
+                                }}
+                            />
+
+                            <span>
+                                Open to collaborations
+                            </span>
                         </div>
-                        <div className="max-h-max flex flex-col py-4 font-normal tracking-tight text-sm justify-center">
-                            <span className="font-semibold">Bachelor 3 – Informatique</span>
-                            <span>IT University</span>
-                            <span className="mt-4 text-on-surface-variant self-end">2021-2024</span>
+                    </div>
+                </motion.article>
+
+
+                {/* =====================================================
+                    02 — PROCESS
+                    Desktop: 8 / 12
+                ====================================================== */}
+
+                <motion.article
+                    variants={cardVariants}
+                    whileHover={{ y: -2 }}
+                    transition={{ duration: 0.2 }}
+                    className="
+                        col-span-1
+                        flex
+                        min-h-[300px]
+                        flex-col
+                        justify-around
+                        rounded-4xl
+                        bg-surface-dim
+                        p-6
+                        text-on-surface-variant
+
+                        md:col-span-7
+                        lg:col-span-8
+                    "
+                >
+
+                    <div className="flex items-center justify-between gap-4">
+
+                        <span className="text-lg font-semibold tracking-tight">
+                            How I make it work?
+                        </span>
+
+                        <span
+                            className="
+                                text-xs
+                                uppercase
+                                tracking-[0.18em]
+                                opacity-50
+                            "
+                        >
+                            Process
+                        </span>
+
+                    </div>
+
+
+                    <div className="overflow-x-auto pb-1">
+
+                        <div className="flex min-w-[620px] items-start">
+
+                            {processSteps.map((step, index) => {
+
+                                const active = activeStep === index;
+
+                                return (
+                                    <div
+                                        key={step.id}
+                                        className="flex flex-1 items-start"
+                                    >
+
+                                        <button
+                                            type="button"
+                                            onMouseEnter={() =>
+                                                setActiveStep(index)
+                                            }
+                                            onFocus={() =>
+                                                setActiveStep(index)
+                                            }
+                                            className="
+                                                group/step
+                                                flex
+                                                min-w-0
+                                                flex-col
+                                                text-left
+                                            "
+                                        >
+
+                                            <span
+                                                className="
+                                                    mb-3
+                                                    text-xs
+                                                    opacity-45
+                                                "
+                                            >
+                                                0{index + 1}
+                                            </span>
+
+
+                                            <motion.span
+                                                animate={{
+                                                    opacity: active
+                                                        ? 1
+                                                        : 0.58,
+                                                    y: active ? -2 : 0,
+                                                }}
+                                                transition={{
+                                                    duration: 0.2,
+                                                }}
+                                                className="
+                                                    whitespace-nowrap
+                                                    text-sm
+                                                    font-semibold
+                                                    tracking-tight
+
+                                                    md:text-base
+                                                "
+                                            >
+                                                {step.label}
+                                            </motion.span>
+
+
+                                            <motion.span
+                                                animate={{
+                                                    opacity: active
+                                                        ? 1
+                                                        : 0.42,
+                                                }}
+                                                transition={{
+                                                    duration: 0.2,
+                                                }}
+                                                className="
+                                                    mt-2
+                                                    max-w-[120px]
+                                                    text-xs
+                                                    leading-relaxed
+                                                "
+                                            >
+                                                {step.description}
+                                            </motion.span>
+
+                                        </button>
+
+
+                                        {index < processSteps.length - 1 && (
+                                            <div
+                                                className="
+                                                    mx-3
+                                                    mt-[22px]
+                                                    h-px
+                                                    flex-1
+                                                    bg-secondary-fixed-dim
+                                                "
+                                                aria-hidden="true"
+                                            />
+                                        )}
+
+                                    </div>
+                                );
+                            })}
+
                         </div>
 
                     </div>
 
-                    <div className="flex flex-col gap-4 p-6 text-xl font-semibold text-on-primary tracking-tight col-span-1 rounded-4xl bg-primary">
-                        <span>My Stacks</span>
+                </motion.article>
 
-                        <div className="flex flex-wrap items-center justify-center gap-3">
-                            {stackBadges.map(({ id, content, bg }) => (
-                                <div
+
+                {/* =====================================================
+                    03 — PROJECTS
+                    Desktop: 3 / 12
+                ====================================================== */}
+
+                <motion.article
+                    variants={cardVariants}
+                    whileHover={{ y: -2 }}
+                    transition={{ duration: 0.2 }}
+                    className="
+                        col-span-1
+                        flex
+                        min-h-[250px]
+                        flex-col
+                        justify-between
+                        rounded-4xl
+                        bg-surface-dim-bright
+                        p-6
+                        text-on-surface-variant
+
+                        md:col-span-4
+                        lg:col-span-3
+                    "
+                >
+
+                    <span className="text-sm font-semibold tracking-tight">
+                        Projects shipped
+                    </span>
+
+
+                    <div>
+
+                        <span
+                            className="
+                                block
+                                text-7xl
+                                font-semibold
+                                leading-none
+                                tracking-[-0.07em]
+
+                                md:text-8xl
+                            "
+                        >
+                            15+
+                        </span>
+
+
+                        <span
+                            className="
+                                mt-3
+                                block
+                                text-sm
+                                opacity-60
+                            "
+                        >
+                            personal, academic & professional
+                        </span>
+
+                    </div>
+
+                </motion.article>
+
+
+                {/* =====================================================
+                    04 — STACK
+                    Desktop: 5 / 12
+                ====================================================== */}
+
+                <motion.article
+                    variants={cardVariants}
+                    whileHover={{ y: -2 }}
+                    transition={{ duration: 0.2 }}
+                    className="
+                        col-span-1
+                        flex
+                        min-h-[250px]
+                        flex-col
+                        justify-between
+                        rounded-4xl
+                        bg-primary
+                        p-6
+                        text-on-primary
+
+                        md:col-span-5
+                        lg:col-span-5
+                    "
+                >
+
+                    <div className="flex items-center justify-between gap-4">
+
+                        <span className="text-lg font-semibold tracking-tight">
+                            My stack
+                        </span>
+
+                        <span
+                            className="
+                                text-xs
+                                uppercase
+                                tracking-[0.18em]
+                                opacity-60
+                            "
+                        >
+                            Core tools
+                        </span>
+
+                    </div>
+
+
+                    <div
+                        className="
+                            grid
+                            grid-cols-2
+                            gap-3
+                            sm:grid-cols-4
+                            md:grid-cols-4
+                            md:gap-2
+                        "
+                    >
+
+                        {stackBadges.map(
+                            ({ id, label, content }) => (
+                                <motion.div
                                     key={id}
-                                    className={`flex h-16 w-16 items-center justify-center rounded-2xl shadow-xl ${bg}`}
+                                    whileHover={{
+                                        scale: 1.06,
+                                        y: -2,
+                                    }}
+                                    transition={{
+                                        duration: 0.18,
+                                    }}
+                                    title={label}
+                                    className="
+                                        flex
+                                        h-12
+                                        md:h-18
+                                        items-center
+                                        justify-center
+                                        shadow-sm
+                                        text-on-primary-container
+                                    "
                                 >
                                     {content}
-                                </div>
-                            ))}
-                        </div>
+                                </motion.div>
+                            ),
+                        )}
+
                     </div>
-                </div>
-            </div>
+
+                </motion.article>
+
+
+                {/* =====================================================
+                    05 — CTA
+                    Desktop: 4 / 12
+                ====================================================== */}
+
+                <motion.article
+                    variants={cardVariants}
+                    whileHover={{ y: -2 }}
+                    transition={{ duration: 0.2 }}
+                    className="
+                        col-span-1
+                        flex
+                        min-h-[250px]
+                        flex-col
+                        justify-between
+                        rounded-4xl
+                        bg-surface-dim
+                        p-6
+                        text-on-surface-variant
+
+                        md:col-span-3
+                        lg:col-span-4
+                    "
+                >
+
+                    <span
+                        className="
+                            text-sm
+                            uppercase
+                            tracking-[0.18em]
+                            opacity-50
+                        "
+                    >
+                        Let's work together
+                    </span>
+
+
+                    <div>
+
+                        <h2
+                            className="
+                                max-w-sm
+                                text-3xl
+                                font-semibold
+                                leading-tight
+                                tracking-[-0.04em]
+
+                                md:text-4xl
+                            "
+                        >
+                            Have an idea worth building?
+                        </h2>
+
+
+                        <button
+                            onClick={() => {setDialogOpen(true)}}
+                            type="button"
+                            className="
+                                mt-6
+                                inline-flex
+                                items-center
+                                border-b
+                                border-secondary-fixed-dim
+                                pb-1
+                                text-sm
+                                font-semibold
+                                tracking-tight
+                                transition-transform
+                                duration-200
+                                hover:translate-x-1
+                            "
+                        >
+                            Let's talk ↗
+                        </button>
+</div>
+                </motion.article>
+
+                        <ContactDialog open={dialogOpen} onOpen={() => {
+                            setDialogOpen(false)
+                        }}/>
+            </motion.div>
         </main>
-    )
-}
+    );
+};
