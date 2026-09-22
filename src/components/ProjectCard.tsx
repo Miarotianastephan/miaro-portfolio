@@ -66,7 +66,7 @@ export const ProjectCard = ({
 
     return (
         <motion.div
-            className={`flex min-h-75 flex-col justify-between rounded-2xl bg-surface-dim-bright p-5 shadow-sm ring-1 ring-black/5 tracking-tight ${className}`}
+            className={`flex min-h-85 flex-col justify-between rounded-2xl bg-surface-dim-bright p-5 shadow-sm ring-1 ring-black/5 tracking-tight ${className}`}
             initial={animation.initial}
             animate={animation.animate}
             transition={animation.transition}
