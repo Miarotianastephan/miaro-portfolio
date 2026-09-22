@@ -9,6 +9,7 @@ Components
 */
 import { ContactDialog } from "@/components/ContactDialog"
 import { Button } from "@/components/ui/Button";
+import { ExperienceCarousel } from "@/components/professional-experience/ExperienceCarousel";
 
 /* 
     Hooks 
@@ -20,16 +21,13 @@ Assets
 import { MailIcon } from 'lucide-react';
 import full_pc from '@/assets/miaro_pc_w_bg.png';
 import face from '@/assets/miaro_face_w_bg.png';
-// import { GithubIcon } from "@/components/ui/github";
-// import { LinkedinIcon } from "@/components/ui/linkedin";
-// import { ContactDialog } from "@/components/ContactDialog";
 
 export const MoreAbout = () => {
     const [dialogOpen, setDialogOpen] = useState(false)
 
     return (
         <div className="flex min-h-screen w-full items-center justify-center px-2 py-2 md:py-8 md:px-6 lg:px-8">
-            <div className="grid h-full w-full max-w-6xl grid-cols-1 gap-4 bg-surface md:grid-cols-3 md:grid-rows-3">
+            <div className="grid w-full max-w-6xl grid-cols-1 gap-4 md:grid-cols-3 md:grid-rows-[260px_auto_auto]">
                 <motion.div
                     className="flex flex-col justify-between rounded-2xl p-5 md:col-span-1 md:row-span-1 bg-primary text-on-primary tracking-tight "
                     initial={{ x: -20, opacity: 0 }}
@@ -75,13 +73,14 @@ export const MoreAbout = () => {
                     }}/>
                 </motion.div>
 
+                {/* Section du bento pour le caroussel des experiences pro */}
                 <motion.div
-                    className="rounded-2xl p-5 md:col-span-2 md:row-span-1 bg-primary-container text-on-primary-container text-lg lg:text-2xl font-semibold tracking-tight selection:text-tertiary selection:bg-surface-container"
+                    className="rounded-2xl p-5 md:col-span-2 md:row-span-1 bg-primary-container text-on-primary-container"
                     initial={{ x: -20, opacity: 0 }}
                     animate={{ x: 0, opacity: 1 }}
                     transition={{ duration: 0.5 }}
                 >
-                    <h1 className="text-lg font-semibold md:text-xl">Comming Soon...</h1>
+                    <ExperienceCarousel />
                 </motion.div>
 
                 <motion.div
@@ -96,43 +95,49 @@ export const MoreAbout = () => {
                     />
                 </motion.div>
 
-                {/* A boucler */}
+                {/* A boucler pour factoriser le code */}
                 <motion.div
-                    className="rounded-2xl bg-surface-dim-bright p-5 md:col-span-1 md:row-span-1"
+                    className="md:min-h-62.5 flex flex-col justify-between rounded-2xl bg-surface-dim-bright p-5 md:col-span-1 md:row-span-1"
                     initial={{ x: -20, opacity: 0 }}
                     animate={{ x: 0, opacity: 1 }}
                     transition={{ duration: 0.6 }}
                 >
-                    <h1 className="text-lg font-semibold md:text-xl">Master 1</h1>
-                    <p className="mt-3 text-sm md:text-base">
-                        Master 1, science and engineering
-                    </p>
+                    <span>
+                        <h1 className="text-lg font-semibold md:text-xl">Master 1</h1>
+                        <p className="mt-3 text-sm md:text-base">
+                            Master 1, science and engineering
+                        </p>
+                    </span>
                     <p className="mt-2 text-sm md:text-base">IT University - 2025</p>
                 </motion.div>
 
                 <motion.div
-                    className="rounded-2xl bg-surface-dim-bright p-5 md:col-span-1 md:row-span-1"
+                    className="max-h-62.5 flex flex-col justify-between rounded-2xl bg-surface-dim-bright p-5 md:col-span-1 md:row-span-1"
                     initial={{ x: 20, opacity: 0 }}
                     animate={{ x: 0, opacity: 1 }}
                     transition={{ duration: 0.65 }}
                 >
-                    <h1 className="text-lg font-semibold md:text-xl">Licence</h1>
-                    <p className="mt-3 text-sm md:text-base">
-                        Application Development and Application Programmation Degree's
-                    </p>
+                    <span>
+                        <h1 className="text-lg font-semibold md:text-xl">Licence</h1>
+                        <p className="mt-3 text-sm md:text-base">
+                            Application Development and Application Programmation Degree's
+                        </p>
+                    </span>
                     <p className="mt-2 text-sm md:text-base">IT University - 2024</p>
                  </motion.div>
 
                 <motion.div
-                    className="rounded-2xl bg-surface-dim-bright p-5 md:col-span-1 md:row-span-1"
+                    className="max-h-62.5 flex flex-col justify-between rounded-2xl bg-surface-dim-bright p-5 md:col-span-1 md:row-span-1"
                     initial={{ x: 20, opacity: 0 }}
                     animate={{ x: 0, opacity: 1 }}
                     transition={{ duration: 0.7 }}
                 >
-                    <h1 className="text-lg font-semibold md:text-xl">Scientific Bac</h1>
-                    <p className="mt-3 text-sm md:text-base">
-                        Bachelor's Scientific Degree
-                    </p>
+                    <span>
+                        <h1 className="text-lg font-semibold md:text-xl">Scientific Bac</h1>
+                        <p className="mt-3 text-sm md:text-base">
+                            Bachelor's Scientific Degree
+                        </p>
+                    </span>
                     <p className="mt-2 text-sm md:text-base">2021</p>
                 </motion.div>
 
