@@ -31,6 +31,8 @@ export default function NavBar({
   const location = useLocation();
   const activeIndex = items.findIndex((item) => item.href === location.pathname);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const resumeUrl = "/CV_RAMANANTSOA_MIARO_DEV_FULLSTACK.pdf";
+  const resumeFileName = "CV_RAMANANTSOA_MIARO_DEV_FULLSTACK.pdf";
 
   const handleSelect = (href: string) => {
     setMobileOpen(false);
@@ -77,7 +79,12 @@ export default function NavBar({
                 size='iconSmall'
                 asChild
             >
-                <a href="" target="_blank" rel="noreferrer" aria-label={`Miarotiana Ramanantsoa Resume download link`}>
+                <a
+                  href={resumeUrl}
+                  download={resumeFileName}
+                  rel="noreferrer"
+                  aria-label="Miarotiana Ramanantsoa Resume download link"
+                >
                     <DownloadIcon />
                 </a>
             </Button>
@@ -97,7 +104,12 @@ export default function NavBar({
               size='iconSmall'
               asChild
           >
-              <a href="" target="_blank" rel="noreferrer" aria-label={`Miarotiana Ramanantsoa Resume download link`}>
+              <a
+                href={resumeUrl}
+                download={resumeFileName}
+                rel="noreferrer"
+                aria-label="Miarotiana Ramanantsoa Resume download link"
+              >
                   <DownloadIcon />
               </a>
           </Button>
